@@ -1,4 +1,6 @@
 // Loads a reusable Mongo client for the application.
+// A connecter to between the database and the Controller. Only job is to transfer the MongoDB client to the controller.
+
 import { MongoClient } from "mongodb";
 import config from "./config.js";
 
