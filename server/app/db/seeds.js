@@ -3,8 +3,8 @@ import productsData from "./data.js";
 
 once
   .connect()
-  .then((connections) =>
-    connections.db("products").collection("products").insertMany(productsData)
+  .then((connection) =>
+    connection.db("products").collection("products").insertMany(productsData)
   )
   .then(() => {
     once.close();
