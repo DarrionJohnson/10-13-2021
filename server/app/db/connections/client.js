@@ -2,7 +2,7 @@
 // A connecter to between the database and the Controller. Only job is to transfer the MongoDB client to the controller.
 
 import { MongoClient } from "mongodb";
-import config from "./config.js";
+import config from "../../config.js";
 
 const client = new MongoClient(config.db.clientURL);
 
