@@ -15,7 +15,7 @@ router.get("/", (_, res) => {
   res.send("Hello From API router!");
 });
 
-// REMEMBER: You need a toArray for it to work.
+// REMEMBER: You need a toArray for it to format correctly.
 router.get("/products", async (_, res) => {
   console.log(client.db(name).collection(collection));
   const products = await client
