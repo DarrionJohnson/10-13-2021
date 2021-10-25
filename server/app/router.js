@@ -29,10 +29,17 @@ router.get("/products/:id", async (req, res) => {
   res.json(product);
 });
 
-// TODO: Add a new Product.
+// How to ADD and DELETE a product.
 router.post("/products", async (req, res) => {
   const createProduct = await collection.insertOne(req.body);
   res.json(createProduct);
+});
+
+router.delete("/products", async (req, res) => {
+  const deleteProduct = await collection.deleteOne({
+    _id: ObjectId(req.body.id),
+  });
+  res.json(deleteProduct);
 });
 
 export default router;
