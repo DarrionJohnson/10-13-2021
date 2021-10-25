@@ -9,11 +9,20 @@ const {
   db: { name, collectionName: collection },
 } = config;
 
+console.log(name, collection);
+
 router.get("/", (_, res) => {
   res.send("Hello From API router!");
 });
+
+// REMEMBER: You need a toArray for it to work.
 router.get("/products", async (_, res) => {
-  const products = await client.db(name).collection(collection).find({});
+  console.log(client.db(name).collection(collection));
+  const products = await client
+    .db(name)
+    .collection(collection)
+    .find({})
+    .toArray();
   res.json(products);
 });
 
