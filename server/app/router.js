@@ -13,11 +13,8 @@ router.get("/", (_, res) => {
   res.send("Hello From API router!");
 });
 router.get("/products", async (_, res) => {
-  // TODO: Get all of the products...
   const products = await client.db(name).collection(collection).find({});
   res.json(products);
 });
-
-// TODO: Add routes here (maybe 🤔 start with a GET test route)
 
 export default router;
