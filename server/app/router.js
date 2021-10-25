@@ -29,4 +29,6 @@ router.get("/products/:id", async (req, res) => {
   res.json(product);
 });
 
+// TODO: Add a new Product.
+
 export default router;
