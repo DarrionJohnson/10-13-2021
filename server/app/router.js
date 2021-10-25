@@ -26,4 +26,5 @@ router.get("/products", async (_, res) => {
   res.json(products);
 });
 
+// TODO: Get the detail for one specific product (ID).
 export default router;
