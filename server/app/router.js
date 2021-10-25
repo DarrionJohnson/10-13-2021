@@ -42,4 +42,6 @@ router.delete("/products", async (req, res) => {
   res.json(deleteProduct);
 });
 
+// TODO: Add an update router.put() for updating.
+
 export default router;
