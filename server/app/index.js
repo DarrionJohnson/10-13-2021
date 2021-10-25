@@ -1,5 +1,5 @@
 // Entry point for the application
-import express from "express";
+import express, { json } from "express";
 import config from "./config.js";
 import router from "./router.js";
 
@@ -9,7 +9,8 @@ app.get("/", (_, res) => {
   res.send("Hello World");
 });
 
-// TODO: Use json middleware (if needed)
+// This allows the server to be accessable by Insonmina.
+app.use(express.json());
 
 app.use("/api", router);
 

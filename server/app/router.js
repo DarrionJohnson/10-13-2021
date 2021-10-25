@@ -30,5 +30,9 @@ router.get("/products/:id", async (req, res) => {
 });
 
 // TODO: Add a new Product.
+router.post("/products", async (req, res) => {
+  const createProduct = await collection.insertOne(req.body);
+  res.json(createProduct);
+});
 
 export default router;
