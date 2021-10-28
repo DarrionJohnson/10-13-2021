@@ -1,5 +1,6 @@
 // Main job is to redirect the data sent to it, and determine where it needs to go.
 
+import { ObjectID } from "bson";
 import Router from "express";
 import { ObjectId } from "mongodb";
 import config from "./config.js";
@@ -18,7 +19,7 @@ router.get("/", (_, res) => {
 // localhost:3000/api/products
 // REMEMBER: You need a toArray for it to format correctly.
 router.get("/products", async (_, res) => {
-  console.log(client.db(name).collection(collection));
+  // console.log(client.db(name).collection(collection));
   const products = await collection.find({}).toArray();
   res.json(products);
 });
@@ -42,6 +43,12 @@ router.delete("/products", async (req, res) => {
   res.json(deleteProduct);
 });
 
-// TODO: Add an update router.put() for updating.
+router.put("/products/", async (req, res) => {
+  const updatedProduct = await collection.updateOne(
+    { _id: ObjectID(req.body.id) },
+    { $set: req.body.payload }
+  );
+  res.json(updatedProduct);
+});
 
 export default router;
